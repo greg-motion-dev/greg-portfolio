@@ -5,12 +5,12 @@
 ## Project Overview
 
 Personal portfolio website for Greg — Creative Frontend Engineer.
-Built with Next.js 15 (App Router), TypeScript, Tailwind CSS v4, GSAP, and React Three Fiber.
+Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, GSAP, and React Three Fiber.
 Target: deployed by end of October 2026.
 
 ## Tech Stack
 
-- Framework: Next.js 15 (App Router, src/ directory)
+- Framework: Next.js 16 (App Router, src/ directory)
 - Language: TypeScript (strict mode)
 - Styling: Tailwind CSS v4
 - Animation: GSAP + ScrollTrigger, Framer Motion
