@@ -13,7 +13,7 @@ Target: deployed by end of October 2026.
 - Framework: Next.js 16 (App Router, src/ directory)
 - Language: TypeScript (strict mode)
 - Styling: Tailwind CSS v4
-- Animation: GSAP + ScrollTrigger, Framer Motion
+- Animation: GSAP + ScrollTrigger, Motion (`motion` package, imported from `motion/react` — not the legacy `framer-motion`)
 - 3D: React Three Fiber + Drei
 - Package manager: npm
 
@@ -47,4 +47,4 @@ public/models/ → GLTF/GLB files
 
 - Owner is still learning TypeScript, GSAP and R3F — explain reasoning when writing new patterns
 - Do NOT install a CMS — content lives in src/data/\*.ts files
-- Framer Motion is for micro-interactions only, GSAP for scroll/timeline animations
+- Motion is for micro-interactions only, GSAP for scroll/timeline animations
