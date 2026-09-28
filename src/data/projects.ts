@@ -8,8 +8,11 @@ export type Project = {
   category: ProjectCategory;
   description: string;
   tags: string[];
-  imageUrl: string;
-  // `?` marks a field as optional — not every project has a live site or public repo.
+  // Shown in place of a screenshot until real images exist.
+  emoji: string;
+  // `?` marks a field as optional — not every project has an image, live site or public repo yet.
+  // Once `imageUrl` is set, components should render the image instead of the emoji.
+  imageUrl?: string;
   liveUrl?: string;
   githubUrl?: string;
   featured: boolean;
@@ -23,7 +26,7 @@ export const projects: Project[] = [
     category: 'wordpress',
     description: 'A custom WordPress theme built for a small business client.',
     tags: ['WordPress', 'PHP', 'SCSS'],
-    imageUrl: '/images/projects/placeholder-wordpress.jpg',
+    emoji: '🧱',
     liveUrl: 'https://example.com',
     featured: true,
   },
@@ -33,7 +36,7 @@ export const projects: Project[] = [
     category: 'react',
     description: 'An interactive dashboard built with React and TypeScript.',
     tags: ['React', 'TypeScript', 'Tailwind CSS'],
-    imageUrl: '/images/projects/placeholder-react.jpg',
+    emoji: '⚛️',
     liveUrl: 'https://example.com',
     githubUrl: 'https://github.com/example/placeholder-react-app',
     featured: true,
@@ -44,7 +47,7 @@ export const projects: Project[] = [
     category: 'creative',
     description: 'A 3D scroll-driven experiment using React Three Fiber and GSAP.',
     tags: ['React Three Fiber', 'GSAP', 'WebGL'],
-    imageUrl: '/images/projects/placeholder-creative.jpg',
+    emoji: '🌀',
     githubUrl: 'https://github.com/example/placeholder-creative-experiment',
     featured: false,
   },
