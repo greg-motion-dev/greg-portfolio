@@ -3,11 +3,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Brand accents, taken from the CV so the site and CV match. */
+  --brand-yellow: #f3aa0d;
+  --brand-cyan: #41b8d5;
+  --brand-magenta: #e66299;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  /* Each `--color-*` here becomes a Tailwind colour: bg-brand-cyan, text-brand-magenta, border-brand-yellow… */
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-magenta: var(--brand-magenta);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
