@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { cvLink, sectionLinks, socialLinks } from '@/data/navigation';
+import { ThemeToggle } from './ThemeToggle';
 
 // Shared focus ring for every link in the header, so keyboard users always see where they are.
 const focusRing =
@@ -61,6 +62,8 @@ export function SiteHeader() {
             </li>
           </ul>
         </nav>
+
+        <ThemeToggle />
       </div>
     </header>
   );

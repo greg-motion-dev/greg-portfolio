@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { MotionProvider } from "@/components/ui/MotionProvider";
 import { SiteHeader } from "@/components/ui/SiteHeader";
+import { ThemeScript } from "@/components/ui/ThemeScript";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,7 +31,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      // ThemeScript adds data-theme to <html> before React loads, so React will see an attribute
+      // it didn't render. This tells React that's expected (it only applies to <html> itself).
+      suppressHydrationWarning
     >
+      <head>
+        <ThemeScript />
+      </head>
       <body className="min-h-full flex flex-col">
         <MotionProvider>
           <SiteHeader />

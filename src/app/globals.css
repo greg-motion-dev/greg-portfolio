@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
+/* Makes Tailwind's `dark:` classes follow the `data-theme` attribute on <html> (set by ThemeScript
+   and ThemeToggle) instead of only the OS setting, so the toggle can override the OS. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Light theme (the default). `color-scheme` makes native bits like scrollbars and form controls match. */
 :root {
+  color-scheme: light;
   --background: #ffffff;
   --foreground: #171717;
 
@@ -21,8 +27,17 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Dark theme: only the tokens that change are redefined; everything else inherits from :root. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* Fallback for when JavaScript is off and no theme has been set: follow the OS setting. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
+    color-scheme: dark;
     --background: #0a0a0a;
     --foreground: #ededed;
   }
