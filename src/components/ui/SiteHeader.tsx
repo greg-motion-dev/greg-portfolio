@@ -9,7 +9,7 @@ const focusRing =
 // Temporary placeholder navigation: plain links, no animation and no mobile menu yet.
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-background/80 backdrop-blur dark:border-white/15">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
       {/* Skip link: hidden until focused, so keyboard users can jump past the nav with one Tab. */}
       <a
         href="#main"
