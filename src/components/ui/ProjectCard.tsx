@@ -39,9 +39,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
       initial="rest"
       whileHover="hover"
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      className="relative flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-background dark:border-white/15"
+      className="relative flex flex-col overflow-hidden rounded-2xl border border-border bg-background"
     >
-      <div className="relative grid aspect-video place-items-center overflow-hidden bg-black/5 dark:bg-white/5">
+      <div className="relative grid aspect-video place-items-center overflow-hidden bg-muted">
         <motion.div variants={mediaVariants} className="absolute inset-0 grid place-items-center">
           {project.imageUrl ? (
             // Empty alt: the title below already names the project, so screen readers skip the image.
@@ -62,10 +62,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="flex flex-1 flex-col gap-4 p-6">
         <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide">
-          <span className="rounded-full bg-black/5 px-3 py-1 dark:bg-white/10">
+          <span className="rounded-full bg-muted px-3 py-1">
             {categoryLabels[project.category]}
           </span>
-          {project.featured && <span className="text-black/50 dark:text-white/50">Featured</span>}
+          {project.featured && <span className="text-muted-foreground">Featured</span>}
         </div>
 
         <h3 className="text-xl font-semibold tracking-tight">
@@ -85,13 +85,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
           )}
         </h3>
 
-        <p className="text-black/70 dark:text-white/70">{project.description}</p>
+        <p className="text-muted-foreground">{project.description}</p>
 
         <ul className="flex flex-wrap gap-2" aria-label="Technologies">
           {project.tags.map((tag) => (
             <li
               key={tag}
-              className="rounded-md border border-black/10 px-2 py-0.5 text-sm dark:border-white/15"
+              className="rounded-md border border-border px-2 py-0.5 text-sm"
             >
               {tag}
             </li>
