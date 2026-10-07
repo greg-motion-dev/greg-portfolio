@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { MotionProvider } from "@/components/ui/MotionProvider";
+import { SiteFooter } from "@/components/ui/SiteFooter";
 import { SiteHeader } from "@/components/ui/SiteHeader";
 import { ThemeScript } from "@/components/ui/ThemeScript";
 import "./globals.css";
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <MotionProvider>
           <SiteHeader />
           {children}
+          <SiteFooter />
         </MotionProvider>
       </body>
     </html>
