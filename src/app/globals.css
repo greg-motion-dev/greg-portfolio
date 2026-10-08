@@ -17,8 +17,9 @@
   --border: #e5e5e5;
 
   /* Brand accents, taken from the CV so the site and CV match.
-     Yellow is darkened in light mode: the CV yellow (#f3aa0d) is only 2:1 on white, too faint for text. */
-  --brand-yellow: #966800;
+     Light-mode yellow is a rich gold (CSS `gold`). It's very faint on white (1.4:1), so use it
+     for fills and on dark or coloured surfaces, not as text on the light background. */
+  --brand-yellow: #ffd700;
   --brand-cyan: #41b8d5;
   --brand-magenta: #e66299;
 }

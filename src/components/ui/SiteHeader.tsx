@@ -6,6 +6,14 @@ import { ThemeToggle } from './ThemeToggle';
 const focusRing =
   'focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground';
 
+// TEMPORARY colour test: links take turns highlighting in yellow, cyan and magenta on hover.
+// Tailwind only generates classes it can find written out in full, so the complete class names
+// live in this array instead of being built like `hover:bg-brand-${colour}`.
+const hoverColors = ['hover:bg-brand-yellow', 'hover:bg-brand-cyan', 'hover:bg-brand-magenta'];
+
+// The brand colours are all bright, so the hovered text is always near-black, in both themes.
+const navLink = 'rounded-full px-2.5 py-1 hover:text-neutral-950';
+
 // Temporary placeholder navigation: plain links, no animation and no mobile menu yet.
 export function SiteHeader() {
   return (
@@ -25,10 +33,14 @@ export function SiteHeader() {
 
         {/* `aria-label` tells screen readers which navigation this is, since there are two. */}
         <nav aria-label="Sections" className="order-last w-full overflow-x-auto md:order-none md:w-auto">
-          <ul className="flex gap-6 text-sm">
-            {sectionLinks.map((link) => (
+          <ul className="flex gap-2 text-sm">
+            {sectionLinks.map((link, index) => (
               <li key={link.href}>
-                <Link href={link.href} className={`whitespace-nowrap underline-offset-4 hover:underline ${focusRing}`}>
+                {/* `index % 3` cycles 0, 1, 2, 0, 1… so the colours repeat in order along the nav. */}
+                <Link
+                  href={link.href}
+                  className={`whitespace-nowrap ${navLink} ${hoverColors[index % hoverColors.length]} ${focusRing}`}
+                >
                   {link.label}
                 </Link>
               </li>
@@ -37,14 +49,14 @@ export function SiteHeader() {
         </nav>
 
         <nav aria-label="Profiles" className="ml-auto">
-          <ul className="flex items-center gap-4 text-sm">
-            {socialLinks.map((link) => (
+          <ul className="flex items-center gap-2 text-sm">
+            {socialLinks.map((link, index) => (
               <li key={link.label}>
                 <a
                   href={link.href}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
-                  className={`underline-offset-4 hover:underline ${focusRing}`}
+                  className={`${navLink} ${hoverColors[index % hoverColors.length]} ${focusRing}`}
                 >
                   {link.label}
                 </a>
