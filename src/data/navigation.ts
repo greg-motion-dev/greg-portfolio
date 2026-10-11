@@ -10,8 +10,7 @@ export type SocialLink = NavLink & {
   external?: boolean;
 };
 
-// Only #projects exists so far. The other ids belong to sections that haven't been built yet,
-// so those links won't scroll anywhere until the matching section is added.
+// Each href's hash matches the `id` of a section on the home page (see src/app/page.tsx).
 export const sectionLinks: NavLink[] = [
   { label: 'Work', href: '/#projects' },
   { label: 'About', href: '/#about' },
